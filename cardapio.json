@@ -1,0 +1,780 @@
+[{
+    "cor":"R",
+    "nome":"Açucar", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Água de coco", 
+    "porcao": "1 xícara",
+    "pontuacao":2
+},
+{
+    "cor":"R",
+    "nome":"Azeitona", 
+    "porcao": "4 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Biscoito Doce", 
+    "porcao": "2 unidades",
+    "pontuacao":4
+},
+{
+    "cor":"R",
+    "nome":"Catupiry/cream cheese/requeijão", 
+    "porcao": "2 colheres de sopa",
+    "pontuacao":6
+},
+{
+    "cor":"R",
+    "nome":"Chocolate em barra", 
+    "porcao": "1 pequeno",
+    "pontuacao":6
+},
+{
+    "cor":"R",
+    "nome":"Coco ralado", 
+    "porcao": "2 colheres de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Creme de Leite", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":2
+},
+{
+    "cor":"R",
+    "nome":"Doce de leite", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Gelatina", 
+    "porcao": "2 colheres de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Geleia", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":2
+},
+{
+    "cor":"R",
+    "nome":"Geleia de mocoto", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":2
+},
+{
+    "cor":"R",
+    "nome":"Gim, Vodka, Whisky", 
+    "porcao": "1/4 xícara",
+    "pontuacao":8
+},
+{
+    "cor":"R",
+    "nome":"Goiabada", 
+    "porcao": "1 fatia média",
+    "pontuacao":5
+},
+{
+    "cor":"R",
+    "nome":"Iogurte com sabor", 
+    "porcao": "1 pote",
+    "pontuacao":8
+},
+{
+    "cor":"R",
+    "nome":"Iogurte com sabor light", 
+    "porcao": "1 pote",
+    "pontuacao":4
+},
+{
+    "cor":"R",
+    "nome":"Iogurte liquido light", 
+    "porcao": "1 xícara",
+    "pontuacao":4
+},
+{
+    "cor":"R",
+    "nome":"Iogurte natural/integral", 
+    "porcao": "1 pote",
+    "pontuacao":6
+},
+{
+    "cor":"R",
+    "nome":"Ketchup", 
+    "porcao": "2 colheres de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Leite condensado", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Leite de coco", 
+    "porcao": "1/4  xícara",
+    "pontuacao":8
+},
+{
+    "cor":"R",
+    "nome":"Linguiça do churrasco", 
+    "porcao": "1 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Maisena", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":2
+},
+{
+    "cor":"R",
+    "nome":"Manteiga", 
+    "porcao": "1  colher de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Mel", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":2
+},
+{
+    "cor":"R",
+    "nome":"Pipoca com gordura", 
+    "porcao": "2 xícaras",
+    "pontuacao":2
+},
+{
+    "cor":"R",
+    "nome":"Polenguinho", 
+    "porcao": "1 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"R",
+    "nome":"Queijo ralado", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":4
+},
+{
+    "cor":"R",
+    "nome":"Sardinha em conserva", 
+    "porcao": "2 unidades",
+    "pontuacao":4
+},
+{
+    "cor":"R",
+    "nome":"Sorvete cremoso", 
+    "porcao": "1 bola",
+    "pontuacao":8
+},
+{
+    "cor":"R",
+    "nome":"Sorvete cremoso diet", 
+    "porcao": "1 bola",
+    "pontuacao":2
+},
+{
+    "cor":"R",
+    "nome":"Vinho/champagne", 
+    "porcao": "1/2 xícara",
+    "pontuacao":4
+},
+{
+    "cor":"Y",
+    "nome":"Desnatado", 
+    "porcao": "1 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Semidesnatado", 
+    "porcao": "3/4 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Aipim", 
+    "porcao": "2 médios",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Arroz Cozido", 
+    "porcao": "1/2 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Batata baroa/doce/inglesa", 
+    "porcao": "1 média",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Biscoito água e sal ou cream crackers", 
+    "porcao": "4 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Corn Flakes", 
+    "porcao": "1 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Ervilha conserva", 
+    "porcao": "1/2 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Feijão", 
+    "porcao": "1/2 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Grão de bico", 
+    "porcao": "1/2 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Lentilha", 
+    "porcao": "1/2 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Macarrão", 
+    "porcao": "1/2 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Milho em conserva", 
+    "porcao": "1/2 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Pão árabe", 
+    "porcao": "2 unidades pequenas",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Pão de forma", 
+    "porcao": "1 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Pão de Hamburguer ou hot dog", 
+    "porcao": "1 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Pão francês", 
+    "porcao": "1 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Pipoca sem gordura", 
+    "porcao": "3 xícaras",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Azeite", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Maionese light", 
+    "porcao": "2 colheres de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Óleo Vegetal", 
+    "porcao": "1 colher de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Clara de ovo", 
+    "porcao": "3 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Ovo cozido", 
+    "porcao": "1 inteiro",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Ovo de codorna", 
+    "porcao": "4 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Minas", 
+    "porcao": "1 fatia fina",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Prato, mussarela ou queijos duros", 
+    "porcao": "2 fatias finas",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Abacate", 
+    "porcao": "2 colheres de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Amêndoa", 
+    "porcao": "7 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Amendoin", 
+    "porcao": "15 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Castanha de caju", 
+    "porcao": "7 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Castanha do pará", 
+    "porcao": "2 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Nozes", 
+    "porcao": "4 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Coxa de frango", 
+    "porcao": "1 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Filé de frango", 
+    "porcao": "1 unidade do tamanho da palma da mão",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Peito de frango", 
+    "porcao": "1/2 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Peito de peru", 
+    "porcao": "3 fatias",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Atum enlatado", 
+    "porcao": "1 lata",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Camarões", 
+    "porcao": "12 pequenos",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Peixe de carne branca", 
+    "porcao": "1 posta ou 1 filé",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Almondega", 
+    "porcao": "3 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Bife", 
+    "porcao": "1 bife do tamanho da mão",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Carne moída", 
+    "porcao": "4 colheres de sopa",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Fígado", 
+    "porcao": "1 bife do tamanho da palma da mão",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Hamburguer", 
+    "porcao": "1 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Peru", 
+    "porcao": "2 fatias do tamanho da palma da mão",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Presunto", 
+    "porcao": "2 fatias",
+    "pontuacao":1
+},
+{
+    "cor":"Y",
+    "nome":"Salsicha",
+    "porcao":"1 unidade",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome": "Abobora",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome": "Abobrinha",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome": "Agrião",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Alface",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Alho-poró",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Beringela",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Bertalha",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Beterraba",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Brocolis",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Cebola",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Cenoura",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Chuchu",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Couve",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Couve flor",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Ervilha",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Espinafre",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Palmito",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Pepino",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Pimentão",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Quiabo",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Rabanete",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Repolho",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Tomate",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Vagem",
+    "porcao":"a vontader",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Abacaxi", 
+    "porcao": "2 fatias medias",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Ameixa", 
+    "porcao": "2 medias",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Ameixa seca", 
+    "porcao": "3 medias",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Banana", 
+    "porcao": "1 pequena",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Caqui", 
+    "porcao": "1 pequeno",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Cereja", 
+    "porcao": "12 grandes",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Damasco", 
+    "porcao": "6 medios",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Figo", 
+    "porcao": "1 grande",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Fruta de conde", 
+    "porcao": "1 pequena",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Kiwi", 
+    "porcao": "1 medio",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Limão", 
+    "porcao": "1 pequeno",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Maçã", 
+    "porcao": "1 pequena",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Mamão", 
+    "porcao": "1/4 médio",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Manga", 
+    "porcao": "1/2 pequena",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Maracujá", 
+    "porcao": "2 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Melancia", 
+    "porcao": "1 fatia grossa",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Morango", 
+    "porcao": "6 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Nespera", 
+    "porcao": "3 pequenas",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Passas", 
+    "porcao": "2 colheres",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Pêra", 
+    "porcao": "1 pequena",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Pessego", 
+    "porcao": "1 medio",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Salada de fruta", 
+    "porcao": "1/2 xícara",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Uvas", 
+    "porcao": "12 a 20 unidades",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Água", 
+    "porcao": "sem limites",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Café", 
+    "porcao": "moderado",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Chá", 
+    "porcao": "moderado",
+    "pontuacao":1
+},
+{
+    "cor":"G",
+    "nome":"Mate", 
+    "porcao": "moderado",
+    "pontuacao":1
+}]
