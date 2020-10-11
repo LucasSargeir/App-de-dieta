@@ -77,6 +77,15 @@ const Settings = () =>{
 
                 <View style={styles.separator}/>   
                 
+                    <TouchableOpacity onPress={handleWithNoFunction}>
+                        <Text style={styles.textSetting}>
+                            <FontAwesome5 style={styles.iconSetting} name="info-circle" size={25} color="#8169be"/>
+                            {"   "}Sobre
+                        </Text>
+                    </TouchableOpacity>
+                
+                <View style={styles.separator}/>   
+                
                     <TouchableOpacity onPress={handleDeleteData}>
                         <Text style={styles.textSetting}>
                             <FontAwesome5 style={styles.iconSetting} name="trash-alt" size={25} color="#8169be"/>

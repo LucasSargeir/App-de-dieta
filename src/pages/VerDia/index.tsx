@@ -25,7 +25,7 @@ const VerDia = () =>{
     }
 
     function printaData(d: Date){
-        console.log(dia?.data);
+        //console.log(dia?.data);
         return d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
     }
 
@@ -87,7 +87,7 @@ const VerDia = () =>{
             </View>
             <View style={{marginHorizontal:40}}>
                 {(dia?.alimentos)&&
-                    <FoodPerDay alimentos={dia.alimentos}/>
+                    <FoodPerDay alimentos={dia.alimentos} dia={new Date(String(routeParams.dia))}/>
                 }
             </View>
         </View>

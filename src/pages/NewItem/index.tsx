@@ -39,7 +39,6 @@ const NewItem = () =>{
 
         var aux = selecionados;
         aux.splice(index,1);
-        //console.log(selecionados);
         setSelecionados([...aux]);
         
     }
@@ -54,7 +53,7 @@ const NewItem = () =>{
         }
 
         //console.log(JSON.stringify(semanas));
-        //return
+        //return//console.log(selecionados);
 
         updateWeek(week, hoje, dia);
 
@@ -62,7 +61,7 @@ const NewItem = () =>{
 
         setSelecionados([]);
 
-        navigation.navigate("Home")
+        navigation.goBack();
 
     }
 

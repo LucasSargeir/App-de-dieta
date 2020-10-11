@@ -11,6 +11,7 @@ interface MyContextData{
     findWeek(d: Date): number;
     updateWeek(index: number, data: Date, dia: Dia): void;
     apagarStorage(): Promise<void>;
+    apagaAlimentoDia(a: Alimento, d: Date): void;
 }
 const MyContext = createContext<MyContextData>({} as MyContextData);
 
@@ -29,7 +30,47 @@ export const MyProvider: React.FC = ({children}) =>{
 
 
 
+    function apagaAlimentoDia(a: Alimento, d: Date){
 
+        const indexWeek = findWeek(d);
+        var indexDay = -1
+        var indexFood = -1
+
+        d.setMilliseconds(0);
+        d.setSeconds(0);
+        d.setMinutes(0);
+        d.setHours(0);
+
+        semanas[indexWeek].dias.map((dia,i)=>{
+
+            const theDate = new Date(dia.data)
+
+            theDate.setMilliseconds(0);
+            theDate.setSeconds(0);
+            theDate.setMinutes(0);
+            theDate.setHours(0);
+
+            if(theDate.getTime() === d.getTime()){
+
+                indexDay = i;
+
+                dia.alimentos.map((ali, i2)=>{
+
+                    if(ali.nome === a.nome){
+
+                        indexFood = i2
+
+                    }
+
+                })
+
+            }
+
+        });
+
+        semanas[indexWeek].dias[indexDay].alimentos.splice(indexFood,1);
+
+    }
 
     function findWeek(d: Date){
         
@@ -231,7 +272,7 @@ export const MyProvider: React.FC = ({children}) =>{
 
 
     return(
-        <MyContext.Provider value={{semanas, alimentos, peso, actualWeek, setPeso, findWeek, updateWeek, apagarStorage}}>
+        <MyContext.Provider value={{semanas, alimentos, peso, actualWeek, setPeso, findWeek, updateWeek, apagarStorage, apagaAlimentoDia}}>
             {children}
         </MyContext.Provider>
     );

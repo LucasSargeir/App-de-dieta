@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';   
-import {ScrollView, Text, View, StyleSheet} from 'react-native'
+import {ScrollView, Text, View, StyleSheet, Dimensions} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useMyContext } from '../../contexts/database';
 import {Semana} from '../../myTypes/index'
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 20,
-        height:600,
+        height:"86%",
     },
     textBody:{
         paddingHorizontal:20,

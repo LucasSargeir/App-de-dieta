@@ -1,21 +1,27 @@
 import React, {useEffect, useState} from 'react';   
-import {ScrollView, Text, View, StyleSheet} from 'react-native'
+import {ScrollView, Text, View, StyleSheet, Dimensions} from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useMyContext } from '../../contexts/database';
 import {Alimento, Semana} from '../../myTypes/index'
 import { FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 interface DataProps{
-    alimentos: Alimento[]
+    alimentos: Alimento[],
+    dia: Date
 }
 
 const FoodPerDay:React.FC<DataProps> = (props) =>{
+    
+    const navigation = useNavigation();
 
     const [selectedType, setSelectedType] = useState(0);
     const [alimentos, setAlimentos] = useState(props.alimentos);
     const [totalR, setTotalR] = useState(0);
     const [totalY, setTotalY] = useState(0);
     const [totalG, setTotalG] = useState(0);
+
+    const {findWeek,apagaAlimentoDia} = useMyContext();
 
     function handleChangeType(t: number){
 
@@ -25,6 +31,20 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
         else{
             setSelectedType(t)
         }
+
+    }
+    function handleInsertNewItems(){
+
+        //console.log("dia:" + props.dia.toDateString());
+        navigation.navigate("NewItem",{semana: findWeek(props.dia), dia: props.dia})
+        setSelectedType(0);
+
+    }
+
+    function handleDeleteItem(a: Alimento, d: Date){
+
+        apagaAlimentoDia(a, d)
+        setSelectedType(0);
 
     }
 
@@ -53,46 +73,53 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
         setTotalY(totY);
         setTotalG(totG);
 
-    },[])
+    },[selectedType])
 
     return(
         <View style={styles.containerView}>
-            <View style={styles.viewHeader}>
-                <TouchableOpacity onPress={()=>{handleChangeType(1)}}>
-                {
-                 (selectedType === 1 )?
-                    <Text style={[styles.headText, styles.typeRed, styles.selectedHeader]}>
-                        <FontAwesome name="eye" size={19} color="#FFF"/>
+            <View style={{flexDirection:"row", justifyContent:"space-between"}}>
+                <View style={styles.viewHeader}>
+                    <TouchableOpacity onPress={()=>{handleChangeType(1)}}>
+                    {
+                    (selectedType === 1 )?
+                        <Text style={[styles.headText, styles.typeRed, styles.selectedHeader]}>
+                            <FontAwesome name="eye" size={19} color="#FFF"/>
+                        </Text>
+                        :
+                        <Text style={[styles.headText, styles.typeRed]}>
+                            <FontAwesome name="eye-slash" size={19} color="#FFF"/>
+                        </Text>
+                    }
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{handleChangeType(2)}}>
+                    {
+                    (selectedType === 2 )?
+                        <Text style={[styles.headText, styles.typeYellow, styles.selectedHeader]}>
+                            <FontAwesome name="eye" size={19} color="#FFF"/>
+                        </Text>
+                        :
+                        <Text style={[styles.headText, styles.typeYellow]}>
+                            <FontAwesome name="eye-slash" size={19} color="#FFF"/>
+                        </Text>
+                    }
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{handleChangeType(3)}}>
+                    {
+                    (selectedType === 3 )?
+                        <Text style={[styles.headText, styles.typeGreen, styles.selectedHeader]}>
+                            <FontAwesome name="eye" size={19} color="#FFF"/>
+                        </Text>
+                        :
+                        <Text style={[styles.headText, styles.typeGreen]}>
+                            <FontAwesome name="eye-slash" size={19} color="#FFF"/>
+                        </Text>
+                    }
+                    </TouchableOpacity>
+                </View>
+                <TouchableOpacity onPress={()=>{handleInsertNewItems()}}>
+                    <Text style={[styles.headText, {marginEnd:10}]}>
+                        <FontAwesome name="plus-circle" size={19} color="#FFF"/>
                     </Text>
-                    :
-                    <Text style={[styles.headText, styles.typeRed]}>
-                        <FontAwesome name="eye-slash" size={19} color="#FFF"/>
-                    </Text>
-                }
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{handleChangeType(2)}}>
-                {
-                 (selectedType === 2 )?
-                    <Text style={[styles.headText, styles.typeYellow, styles.selectedHeader]}>
-                        <FontAwesome name="eye" size={19} color="#FFF"/>
-                    </Text>
-                    :
-                    <Text style={[styles.headText, styles.typeYellow]}>
-                        <FontAwesome name="eye-slash" size={19} color="#FFF"/>
-                    </Text>
-                }
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{handleChangeType(3)}}>
-                {
-                 (selectedType === 3 )?
-                    <Text style={[styles.headText, styles.typeGreen, styles.selectedHeader]}>
-                        <FontAwesome name="eye" size={19} color="#FFF"/>
-                    </Text>
-                    :
-                    <Text style={[styles.headText, styles.typeGreen]}>
-                        <FontAwesome name="eye-slash" size={19} color="#FFF"/>
-                    </Text>
-                }
                 </TouchableOpacity>
             </View>
             {
@@ -105,8 +132,11 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
                                     if(a.cor === 'R'){
 
                                         return(
-                                            <View key={`${i}`}>
+                                            <View key={`${i}`} style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", paddingEnd: 30}}>
                                                 <Text style={styles.textBody}>{a.nome} - {a.pontuacao} {(a.pontuacao == "1" )?"ponto":"pontos"}</Text>
+                                                <TouchableOpacity onPress={()=>{handleDeleteItem(a, props.dia)}}>
+                                                    <FontAwesome name="trash" size={15} color="#FFF"/>
+                                                </TouchableOpacity>
                                             </View>
                                         )
 
@@ -130,8 +160,11 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
                                     if(a.cor === 'Y'){
 
                                         return(
-                                            <View key={`${i}`}>
+                                            <View key={`${i}`} style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", paddingEnd: 30}}>
                                                 <Text style={styles.textBody}>{a.nome} - {a.pontuacao} {(a.pontuacao == "1" )?"ponto":"pontos"}</Text>
+                                                <TouchableOpacity onPress={()=>{handleDeleteItem(a, props.dia)}}>
+                                                    <FontAwesome name="trash" size={15} color="#FFF"/>
+                                                </TouchableOpacity>
                                             </View>
                                         )
 
@@ -155,11 +188,13 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
                                     if(a.cor === 'G'){
 
                                         return(
-                                            <View key={`${i}`}>
+                                            <View key={`${i}`} style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between", paddingEnd: 30}}>
                                                 <Text style={styles.textBody}>{a.nome} - {a.pontuacao} {(a.pontuacao == "1" )?"ponto":"pontos"}</Text>
+                                                <TouchableOpacity onPress={()=>{handleDeleteItem(a, props.dia)}}>
+                                                    <FontAwesome name="trash" size={15} color="#FFF"/>
+                                                </TouchableOpacity>
                                             </View>
                                         )
-
                                     }
 
                                 })
@@ -191,7 +226,7 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 20,
         borderTopRightRadius: 20,
         borderBottomLeftRadius: 20,
-        height:450,
+        height: "78%",
     },
     textBody:{
         paddingHorizontal:20,

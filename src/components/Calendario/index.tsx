@@ -14,7 +14,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
     const {semanas, findWeek} = useMyContext();
     const navigation = useNavigation();
-
+    const [whatChange, setWhatChange] = useState(0)
     const [selectedMonth, setSelectedMoth] = useState(props.mes)
     const [selectedYear, setSelectedYear] = useState(props.ano)
     const [diasContados, setDiasContados] = useState<String[][]>([])
@@ -53,18 +53,24 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
     }
 
+    function handleChangeYear(n: number){
+
+        setSelectedYear(selectedYear+n)
+
+    }
+
     function handleChangeMonth(i: number) {
         
         var newMonth = selectedMonth+i;
 
-        if(newMonth > 12){
-            newMonth = 1
+        if(newMonth > 11){
+            newMonth = 0
             setSelectedYear(selectedYear+1)
         }
         
-        if(newMonth < 1){
+        if(newMonth < 0){
             setSelectedYear(selectedYear-1)
-            newMonth = 12
+            newMonth = 11
         }
 
         setSelectedMoth(newMonth);
@@ -111,7 +117,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
         setDias(vet)
 
-    },[selectedMonth]);
+    },[selectedMonth, selectedYear]);
 
     useEffect(()=>{
 
@@ -123,9 +129,11 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
                 const day = String(new Date(d.data).getDate());
                 const month = new Date(d.data).getMonth();
+                const year = new Date(d.data).getFullYear();
               //  const day2 = dias.find(element=> element === day )
-
-                diasC[month].push(day)  
+                if(year === selectedYear){
+                    diasC[month].push(day)  
+                }
 
             })
 
@@ -133,19 +141,35 @@ const Calendario:React.FC<DataProps> = (props)=>{
         
         setDiasContados(diasC)
 
-    },[])
+    },[selectedYear])
 
     return(
         <View style={styles.calendario}>
-            <Text style={styles.anoTexto}>{selectedYear}</Text>
             <View style={styles.mes}>
+            {(whatChange === 1)&&
+            <TouchableOpacity onPress={()=>{handleChangeYear(-1)}} >
+                    <FontAwesome name="caret-left" size={40} color="#8169be"/>
+            </TouchableOpacity>
+            }
+            <Text onPress={()=>{setWhatChange(1)}}  style={styles.anoTexto}>{selectedYear}</Text>
+            {(whatChange === 1)&&
+                <TouchableOpacity onPress={()=>{handleChangeYear(1)}}>
+                    <FontAwesome name="caret-right" size={40} color="#8169be"/>
+                </TouchableOpacity>
+            }
+            </View>
+            <View style={styles.mes}>
+                {(whatChange === 0)&&
                 <TouchableOpacity onPress={()=>{handleChangeMonth(-1)}} >
                         <FontAwesome name="caret-left" size={40} color="#8169be"/>
                 </TouchableOpacity>
-                <Text style={styles.mesTexto}>{findMonthName(selectedMonth)}</Text>
+                }
+                <Text onPress={()=>{setWhatChange(0)}} style={styles.mesTexto}>{findMonthName(selectedMonth)}</Text>
+               {(whatChange === 0)&&
                 <TouchableOpacity onPress={()=>{handleChangeMonth(1)}}>
                     <FontAwesome name="caret-right" size={40} color="#8169be"/>
                 </TouchableOpacity>
+                }
             </View>
             <View style={styles.semanas}>
                 <View style={styles.semanaHeader}>
