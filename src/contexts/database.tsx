@@ -32,6 +32,8 @@ export const MyProvider: React.FC = ({children}) =>{
 
     function apagaAlimentoDia(a: Alimento, d: Date){
 
+        console.log("Dia: "+d.toDateString());
+
         const indexWeek = findWeek(d);
         var indexDay = -1
         var indexFood = -1
@@ -56,7 +58,7 @@ export const MyProvider: React.FC = ({children}) =>{
 
                 dia.alimentos.map((ali, i2)=>{
 
-                    if(ali.nome === a.nome){
+                    if(ali.nome == a.nome){
 
                         indexFood = i2
 
@@ -68,7 +70,19 @@ export const MyProvider: React.FC = ({children}) =>{
 
         });
 
-        semanas[indexWeek].dias[indexDay].alimentos.splice(indexFood,1);
+        console.log(semanas);
+        console.log("------------------------------------------------------------------------------------------");
+        console.log("Index Day " + indexDay);
+        console.log("Index Week " + indexWeek);
+        console.log("Index Food " + indexFood);
+        console.log("------------------------------------------------------------------------------------------");
+        if(indexWeek !== -1 && indexDay !== -1 && indexFood !== -1){
+
+            semanas[indexWeek].dias[indexDay].alimentos.splice(indexFood,1);
+
+        }
+        
+        console.log(semanas);
 
     }
 
