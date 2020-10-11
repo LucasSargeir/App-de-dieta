@@ -1,4 +1,8 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
 
 const styles = StyleSheet.create({
 
@@ -7,28 +11,28 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"#FFeeFF",
-        fontSize: 25,
+        fontSize: DimensionFont * 23,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
-        marginHorizontal:35
+        marginHorizontal: DimensionWidth * 0.05
     },
     header:{
-        marginTop: 35,
+        marginTop: DimensionHeight * 0.05,
         marginHorizontal:15
     },
     visoes:{
         flexDirection: "row",
         justifyContent:"flex-end",
-        marginRight: 30,
-        marginTop: 30
+        marginRight: DimensionWidth * 0.065,
+        marginTop: DimensionHeight * 0.03
     },
     visao:{
         backgroundColor:"#1e1041",
         borderColor: "#8169be",
         borderWidth: 2,
-        borderRadius: 30,
-        margin: 10,
-        padding: 10
+        borderRadius: DimensionWidth * 1,
+        margin: DimensionWidth * 0.01,
+        padding: DimensionWidth * 0.03
     },
 });
 

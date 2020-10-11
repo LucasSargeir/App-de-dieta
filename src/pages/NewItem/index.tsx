@@ -16,7 +16,7 @@ const NewItem = () =>{
     const [selecionados, setSelecionados] = useState<Alimento[]>([]);
     const [week, setWeek] = useState(-1) //Semana que os itens serão inseridos
     const [inputPeso, setInputPeso] = useState(0);
-    
+    const [hasItem, setHasItem] = useState(false);
     const {semanas, alimentos, setPeso, peso, updateWeek} = useMyContext();
     const navigation = useNavigation();
 
@@ -106,10 +106,14 @@ const NewItem = () =>{
             {//<Text style={styles.title2}>{(semanas[routeParams.semana])?"Semana "+semanas[routeParams.semana].numero:" "}</Text>
             }
             <View style={styles.selectedBox}>
-                <Text style={styles.description}>Atenção!</Text>
-                <Text style={styles.description}>Considere as porções indicadas, caso seja uma porção maior do que a disponível insira o item mais de uma vez</Text>
-                <View style={styles.separator}/>
-                <ScrollView style={{maxHeight:150}}
+            {(selecionados.length === 0)&&
+                <View>
+                    <Text style={styles.description}>Atenção!</Text>
+                    <Text style={styles.description}>Considere as porções indicadas, caso seja uma porção maior do que a disponível insira o item mais de uma vez</Text>
+                    <View style={styles.separator}/>
+                </View>
+            }
+                <ScrollView 
                             contentContainerStyle={{paddingEnd: 5}}>
                     <View style={styles.selectedItems}>
                     {(selecionados.length !== 0)?
@@ -131,32 +135,32 @@ const NewItem = () =>{
                     </View>
                 </ScrollView>
             </View>
+            <View>
+                <View style={styles.alimentos}>
+                    <View style={styles.headerTable}>
+                        <Text style={styles.headerTableText}>Alimento</Text>
+                        <Text style={styles.headerTableText}>Porção</Text>
+                        <Text style={styles.headerTableText}>Pontuação</Text>
+                    </View>
 
-            <View style={styles.alimentos}>
-                <View style={styles.headerTable}>
-                    <Text style={styles.headerTableText}>Alimento</Text>
-                    <Text style={styles.headerTableText}>Porção</Text>
-                    <Text style={styles.headerTableText}>Pontuação</Text>
+                    <View style={styles.separator}/>
+
+                    <ScrollView showsVerticalScrollIndicator={true}                          
+                                horizontal={false}
+                                contentContainerStyle={{paddingEnd: 10}}>
+                        {
+                            alimentos.map((a, i) => {
+                                
+                                return <FoodTable key={String(i)} cor={a.cor} alimento={a.nome} pontos={a.pontuacao} porcao={a.porcao} onPress={()=>{handleAddAlimento(a)}}/>
+                                
+
+                            })
+
+                        }
+
+                    </ScrollView>
+
                 </View>
-
-                <View style={styles.separator}/>
-
-                <ScrollView showsVerticalScrollIndicator={true}                          
-                            horizontal={false}
-                            style={{maxHeight:250}}
-                            contentContainerStyle={{paddingEnd: 10}}>
-                    {
-                        alimentos.map((a, i) => {
-                            
-                            return <FoodTable key={String(i)} cor={a.cor} alimento={a.nome} pontos={a.pontuacao} porcao={a.porcao} onPress={()=>{handleAddAlimento(a)}}/>
-                            
-
-                        })
-
-                    }
-
-                </ScrollView>
-
             </View>
             <View style={styles.button}> 
                 <Button title="Enviar" onPress={()=>{handleInsertMeal()}}/>

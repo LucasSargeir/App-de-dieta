@@ -1,4 +1,8 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
 
 const styles = StyleSheet.create({
 
@@ -7,39 +11,40 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"#FFeeFF",
-        fontSize: 25,
+        fontSize: DimensionFont * 23,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
-        marginHorizontal:35
+        marginHorizontal: DimensionWidth * 0.05
     },
     title2:{
         color:"#FFeeFF",
-        fontSize: 15,
+        fontSize: DimensionFont * 15,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
         marginHorizontal:35
     },
     header:{
-        marginTop: 35,
+        marginTop: DimensionHeight * 0.05,
         marginHorizontal:15
     },
     description:{
         color:"#FFeeFF",
-        fontSize: 10,
+        fontSize: DimensionFont * 9,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
         marginTop: 5,
-        marginHorizontal:15
+        marginHorizontal:DimensionWidth * 0.05
     },
     selectedBox:{
-        marginTop: 15,
+        marginTop: DimensionHeight * 0.01,
         backgroundColor:"#1e1041",
         borderColor: "#8169be",
         borderWidth: 2,
-        marginHorizontal: 40,
+        marginHorizontal: DimensionWidth * 0.05,
         paddingBottom: 5,
         paddingTop: 5,
-        borderRadius: 20,
+        borderRadius: DimensionWidth * 0.06,
+        height: DimensionHeight * 0.2
     },
     separator:{
         borderBottomColor: "rgba(255,255,255,0.3)",
@@ -49,15 +54,15 @@ const styles = StyleSheet.create({
     },
     selectedItems:{
         flexDirection:"row",
-        marginHorizontal: 20,
+        marginHorizontal: DimensionWidth * 0.01,
         flexWrap: "wrap"
     },
     item:{
         flexDirection:"row",
-        marginHorizontal:5,
+        marginHorizontal:DimensionWidth * 0.01,
         marginVertical:5,
         borderColor: "#8169be",
-        borderRadius: 20,
+        borderRadius: DimensionWidth * 1,
         borderWidth: 1,
         padding:5,
         alignItems:"center",
@@ -65,14 +70,14 @@ const styles = StyleSheet.create({
     },
     itemText:{
         color:"#FFF",
-        marginHorizontal:3,
+        marginHorizontal: DimensionWidth * 0.01,
     },
     itemExit:{
-        marginHorizontal:3,
+        marginHorizontal: DimensionWidth * 0.009,
         backgroundColor:"#8169be",
-        borderRadius: 10,
-        width:20,
-        height:20,
+        width:DimensionWidth * 0.05,
+        height:DimensionWidth * 0.05,
+        borderRadius: DimensionWidth * 0.05,
         alignItems:"center",
         justifyContent:"center"
     },
@@ -82,8 +87,10 @@ const styles = StyleSheet.create({
         textAlign:"center"
     },
     alimentos:{
-        marginHorizontal: 30,
-        marginTop: 25
+        marginHorizontal: DimensionWidth * 0.07,
+        marginTop: DimensionHeight * 0.025,
+        height: DimensionHeight * 0.4,
+        
     },
     headerTable:{
         flexDirection:"row",
@@ -93,7 +100,7 @@ const styles = StyleSheet.create({
     headerTableText:{
         fontFamily:"Ubuntu_500Medium",
         color:"#FFF",
-        fontSize: 20,
+        fontSize: DimensionFont * 18,
         flex:1
     },
     colums:{
@@ -103,32 +110,11 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"space-around",
     },
-    alimentoText:{
-        flex:1,
-        color:"#FFF",
-        marginBottom:2,
-        padding: 7,
-        fontSize: 12
-    },
-    typeGreen:{
-        backgroundColor:"rgba(127,201,80,0.7)",
-    },
-    typeRed:{
-        backgroundColor:"rgba(210,47,47,0.7)",
-    },
-    typeYellow:{
-        backgroundColor:"rgba(236,238,49, 0.7)",
-    },
-    borderLeft:{
-        borderTopLeftRadius: 7
-    },
-    borderRight:{
-        borderBottomRightRadius:7
-    },
     button:{
         flex:1, 
         justifyContent:"flex-end", 
-        marginBottom: 20
+        marginBottom: DimensionHeight * 0.05
+        
     },
     inputPeso:{
         backgroundColor: "#FFF",

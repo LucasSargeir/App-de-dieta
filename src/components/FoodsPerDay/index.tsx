@@ -213,52 +213,54 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
 
 }
 
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
+
 const styles = StyleSheet.create({
 
     containerView:{
-
+        height: DimensionHeight * 0.8
     },
     viewHeader:{
         flexDirection:"row"
     },
     viewBody:{
-        paddingVertical: 1,
-        borderBottomRightRadius: 20,
-        borderTopRightRadius: 20,
-        borderBottomLeftRadius: 20,
-        height: "78%",
+        paddingVertical: DimensionHeight * 0.015,
+        borderBottomRightRadius: DimensionWidth * 0.05,
+        borderTopRightRadius: DimensionWidth * 0.05,
+        borderBottomLeftRadius: DimensionWidth * 0.05,
+        height: DimensionHeight * 0.65
     },
     textBody:{
-        paddingHorizontal:20,
-        paddingVertical: 10,
+        paddingHorizontal: DimensionWidth * 0.01,
+        paddingVertical: DimensionHeight * 0.01,
         color:"#FFeeFF",
-        marginLeft:20,
+        marginLeft: DimensionWidth * 0.04,
         justifyContent:"space-between"
     },
     textBodyTitle:{
         fontFamily: "Ubuntu_500Medium",
-        paddingHorizontal:20,
-        paddingVertical: 3,
+        paddingHorizontal:DimensionWidth * 0.05,
         color:"#FFeeFF",
-        textDecorationLine: "underline",
-        marginTop: 15,
+        marginTop: DimensionHeight * 0.02,
     },
     headText:{
         color:"#FFeeFF",
-        paddingRight:15,
-        paddingVertical:15,
-        paddingHorizontal: 5
+        paddingRight: DimensionWidth * 0.04,
+        paddingVertical: DimensionHeight * 0.024,
+        paddingHorizontal:  DimensionWidth * 0.03
     },
     selectedHeader:{
-        paddingHorizontal:20
+        paddingHorizontal:  DimensionWidth * 0.09
     },
     typeGreen:{
         backgroundColor:"rgba(127,201,80,0.7)",
-        borderTopRightRadius: 15,
+        borderTopRightRadius: DimensionWidth * 0.04,
     },
     typeRed:{
         backgroundColor:"rgba(210,47,47,0.7)",
-        borderTopLeftRadius:15,
+        borderTopLeftRadius: DimensionWidth * 0.04,
     },
     typeYellow:{
         backgroundColor:"rgba(236,238,49, 0.7)",
@@ -273,7 +275,7 @@ const styles = StyleSheet.create({
         alignSelf:"center",
         color:"#8169be",
         textAlign:"center",
-        marginTop: "25%"
+        marginTop: DimensionHeight * 0.2
     },
     footer:{
         

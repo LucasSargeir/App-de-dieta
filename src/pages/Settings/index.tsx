@@ -46,14 +46,14 @@ const Settings = () =>{
                 <TouchableOpacity onPress={handleNavigateBack}>
                     <FontAwesome5 name="arrow-left" size={30} color="#FFF"/>
                 </TouchableOpacity>
-                <Text style={styles.title}>Configurações de Conta</Text>
+                <Text style={styles.title}>Configurações do Aplicativo</Text>
             </View>
             <View style={styles.list}>
                 
                 <TouchableOpacity onPress={handleWithNoFunction}>
                     <Text style={styles.textSetting}>
-                        <FontAwesome5 style={styles.iconSetting} name="plus-circle" size={25} color="#8169be"/>
-                        {"   "}Adicionar item ao cardápio
+                        <FontAwesome5 style={styles.iconSetting} name="plus-circle" size={20} color="#8169be"/>
+                        {"  "}Adicionar item ao cardápio
                     </Text> 
                 </TouchableOpacity>
 
@@ -61,7 +61,7 @@ const Settings = () =>{
                 
                     <TouchableOpacity onPress={handleWithNoFunction}>
                         <Text style={styles.textSetting}>
-                            <FontAwesome5 style={styles.iconSetting} name="file-upload" size={25} color="#8169be"/>
+                            <FontAwesome5 style={styles.iconSetting} name="file-upload" size={20} color="#8169be"/>
                             {"   "}Importar Dados
                         </Text>
                     </TouchableOpacity>
@@ -70,7 +70,7 @@ const Settings = () =>{
 
                     <TouchableOpacity onPress={handleWithNoFunction}>
                         <Text style={styles.textSetting}>
-                            <FontAwesome5 style={styles.iconSetting} name="file-download" size={25} color="#8169be"/>
+                            <FontAwesome5 style={styles.iconSetting} name="file-download" size={20} color="#8169be"/>
                             {"   "}Exportar Dados
                         </Text>
                     </TouchableOpacity>
@@ -79,7 +79,7 @@ const Settings = () =>{
                 
                     <TouchableOpacity onPress={handleWithNoFunction}>
                         <Text style={styles.textSetting}>
-                            <FontAwesome5 style={styles.iconSetting} name="info-circle" size={25} color="#8169be"/>
+                            <FontAwesome5 style={styles.iconSetting} name="info-circle" size={20} color="#8169be"/>
                             {"   "}Sobre
                         </Text>
                     </TouchableOpacity>
@@ -88,7 +88,7 @@ const Settings = () =>{
                 
                     <TouchableOpacity onPress={handleDeleteData}>
                         <Text style={styles.textSetting}>
-                            <FontAwesome5 style={styles.iconSetting} name="trash-alt" size={25} color="#8169be"/>
+                            <FontAwesome5 style={styles.iconSetting} name="trash-alt" size={20} color="#8169be"/>
                             {"   "}Excluir Dados
                         </Text>
                     </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, Dimensions} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 interface DataProps{
@@ -19,20 +19,24 @@ const Button:React.FC<DataProps> = (props) =>{
 
 }
 
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
+
 const styles = StyleSheet.create({
     button:{
         backgroundColor: "#8169be",
         alignItems:"center",
         justifyContent:"center",
-        width: "45%",
+        width: DimensionWidth * 0.45,
         alignSelf:"center",
-        padding: 20,
-        borderRadius: 10
+        padding: DimensionWidth * 0.055,
+        borderRadius: DimensionWidth * 0.03
     },
     text:{
         color:"#FFF",
         fontFamily: "Ubuntu_500Medium",
-        fontSize: 16
+        fontSize: DimensionFont * 15
     }
 });
 

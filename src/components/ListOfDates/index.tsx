@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React, {  useState } from 'react';
+import { StyleSheet, Dimensions, View, Text } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { useMyContext } from '../../contexts/database';
 import { useNavigation } from '@react-navigation/native';
@@ -112,14 +112,18 @@ const ListOfDates = () =>{
 
 }
 
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
+
 const style = StyleSheet.create({
 
     container:{
-        margin:30,
+        margin: DimensionWidth * 0.06,
         backgroundColor:"#1e1041",
         borderColor: "#8169be",
         borderWidth: 2,
-        borderRadius: 30,
+        borderRadius: DimensionWidth * 0.06,
     },
     header:{
         marginVertical: 8,
@@ -129,28 +133,27 @@ const style = StyleSheet.create({
     },
     headerText:{
         color:"#FFeeFF",
-        fontSize: 25,
+        fontSize: DimensionFont * 22,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
-        paddingHorizontal: 30
+        paddingHorizontal: DimensionWidth * 0.01
     },
     dataContainer:{
-        maxHeight:480,
-        minHeight:250,
+        height: DimensionHeight * 0.36
     },
     dataLine:{
         flexDirection:"row",
         backgroundColor:"#8169be",
-        borderRadius: 30,
+        borderRadius: DimensionWidth * 1,
         padding:2,
-        margin: 10
+        margin: DimensionWidth * 0.028
     },
     dataBlock:{
-        padding:6
+        padding:6,
     },
     dataText:{
         color:"#FFeeFF",
-        fontSize: 10,
+        fontSize: DimensionFont * 10,
         textAlign:"center",
         fontFamily:"UbuntuCondensed_400Regular",
         paddingHorizontal: 10
@@ -158,13 +161,13 @@ const style = StyleSheet.create({
     informationBlock:{
         flex:1,
         backgroundColor:"#1e1041",
-        borderTopRightRadius: 30,
-        borderBottomRightRadius: 30,
+        borderTopRightRadius: DimensionWidth * 0.085,
+        borderBottomRightRadius: DimensionWidth * 0.085,
         
     },
     informationText:{
         color:"#FFeeFF",
-        fontSize: 10,
+        fontSize: DimensionFont * 9,
     },
     typeGreen:{
         backgroundColor:"rgba(127,201,80,0.7)",
@@ -203,28 +206,29 @@ const style = StyleSheet.create({
         paddingVertical:2,
         flexDirection:'row',
         justifyContent: "space-between",
-        paddingEnd:10,
+        paddingEnd: DimensionWidth * 0.03,
     },
     lineTwo:{
         flex:1,
         backgroundColor:"#342754",
         paddingHorizontal: 5,
         paddingVertical:2,
-        borderBottomRightRadius: 30,
+        borderBottomRightRadius: DimensionWidth * 0.085,
         flexDirection:'row',
+        paddingEnd: DimensionWidth * 0.03
     },
     week:{
         textAlign:'right',
         flex:1,
         paddingRight:10,
         color:"#FFeeFF",
-        fontSize: 10,
+        fontSize: DimensionFont * 9,
     },
     nothingText:{
         alignSelf:"center",
         color:"#8169be",
         textAlign:"center",
-        marginTop: "25%"
+        marginTop: DimensionWidth * 0.5
     },
 });
 

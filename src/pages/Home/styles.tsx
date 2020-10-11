@@ -1,4 +1,8 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
 
 const styles = StyleSheet.create({
 
@@ -8,18 +12,17 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"#FFeeFF",
-        fontSize: 35,
+        fontSize: DimensionFont * 30,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
-        marginTop: -15,
-        marginHorizontal:50
+        marginHorizontal: DimensionWidth * 0.06
     },
     footer:{
         flexDirection:"row",
         alignItems: "center",
         justifyContent: "center",
         color:"#FFeeFF",
-        marginBottom: 10,
+        marginBottom: DimensionHeight * 0.01,
     },
     description:{
         color:"#FFeeFF"
@@ -39,7 +42,8 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         alignItems: "center",
         justifyContent: "space-around",
-        margin: 20,
+        marginHorizontal: DimensionWidth * 0.05,
+        marginVertical: DimensionHeight * 0.05,
         borderRadius: 20,
         width: 140,
         height: 140
@@ -49,17 +53,8 @@ const styles = StyleSheet.create({
     },
     settings:{
         alignSelf:"flex-end",
-        marginTop:35,
-        marginRight: 15
-    },
-    inputPeso:{
-        backgroundColor: "#FFF",
-        margin: 50,
-        paddingHorizontal:15,
-        height:50,
-        borderRadius: 20,
-        fontSize: 20
-
+        marginTop: DimensionHeight * 0.035,
+        marginRight: DimensionWidth * 0.035
     }
 });
 

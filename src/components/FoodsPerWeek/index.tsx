@@ -117,7 +117,7 @@ const FoodPerWeek:React.FC<DataProps> = (props) =>{
                         <FontAwesome name="eye" size={19} color="#FFF"/>
                     </Text>
                     :
-                    <Text style={[styles.headText, styles.typeGreen]}>
+                    <Text style={[styles.headText, styles.typeGreen,{textAlign: "center"}]}>
                         <FontAwesome name="eye-slash" size={19} color="#FFF"/>
                     </Text>
                 }
@@ -280,6 +280,10 @@ const FoodPerWeek:React.FC<DataProps> = (props) =>{
 
 }
 
+const DimensionFont = (Dimensions.get("window").fontScale);
+const DimensionHeight = (Dimensions.get("window").height);
+const DimensionWidth = (Dimensions.get("window").width);
+
 const styles = StyleSheet.create({
 
     containerView:{
@@ -290,42 +294,42 @@ const styles = StyleSheet.create({
     },
     viewBody:{
         paddingVertical: 1,
-        borderBottomRightRadius: 20,
-        borderTopRightRadius: 20,
-        borderBottomLeftRadius: 20,
-        height:"86%",
+        borderBottomRightRadius: DimensionWidth * 0.05,
+        borderTopRightRadius: DimensionWidth * 0.05,
+        borderBottomLeftRadius: DimensionWidth * 0.05,
+        height: DimensionHeight * 0.75
     },
     textBody:{
-        paddingHorizontal:20,
+        paddingHorizontal: DimensionWidth * 0.01,
         paddingVertical: 3,
         color:"#FFeeFF",
-        marginLeft:20,
+        marginLeft: DimensionWidth * 0.1,
         justifyContent:"space-between"
     },
     textBodyTitle:{
         fontFamily: "Ubuntu_500Medium",
-        paddingHorizontal:20,
+        paddingHorizontal: DimensionWidth * 0.05,
         paddingVertical: 3,
         color:"#FFeeFF",
         textDecorationLine: "underline",
-        marginTop: 15,
+        marginTop: DimensionHeight * 0.02,
     },
     headText:{
         color:"#FFeeFF",
-        paddingRight:15,
-        paddingVertical:15,
-        paddingHorizontal: 5
+        paddingRight: DimensionWidth * 0.03,
+        paddingVertical:DimensionWidth * 0.029,
+        paddingHorizontal: DimensionWidth * 0.029
     },
     selectedHeader:{
-        paddingHorizontal:20
+        paddingHorizontal:DimensionWidth * 0.09
     },
     typeGreen:{
         backgroundColor:"rgba(127,201,80,0.7)",
-        borderTopRightRadius: 15,
+        borderTopRightRadius: DimensionWidth * 0.05,
     },
     typeRed:{
         backgroundColor:"rgba(210,47,47,0.7)",
-        borderTopLeftRadius:15,
+        borderTopLeftRadius: DimensionWidth * 0.05,
     },
     typeYellow:{
         backgroundColor:"rgba(236,238,49, 0.7)",
@@ -333,14 +337,14 @@ const styles = StyleSheet.create({
     separator:{
         borderBottomColor: "rgba(255,255,255,0.3)",
         borderBottomWidth: 1,
-        marginHorizontal: 10,
+        marginHorizontal:  DimensionWidth * 0.04,
         marginVertical: 8,
     },
     nothingText:{
         alignSelf:"center",
         color:"#8169be",
         textAlign:"center",
-        marginTop: "25%"
+        marginTop:  DimensionWidth * 0.5
     },
     footer:{
         

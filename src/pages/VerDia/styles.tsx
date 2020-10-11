@@ -1,4 +1,8 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
 
 const styles = StyleSheet.create({
     container:{
@@ -6,27 +10,27 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"#FFeeFF",
-        fontSize: 25,
+        fontSize: DimensionFont * 23,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
-        marginHorizontal:35
+        marginHorizontal: DimensionWidth * 0.05
     },
     header:{
-        marginTop: 35,
-        marginHorizontal:15
+        marginTop: DimensionHeight * 0.05,
+        marginHorizontal: DimensionWidth * 0.03
     },
     information:{
         flexDirection:"row",
-        margin: 40,
+        margin: DimensionWidth * 0.03,
         justifyContent:"space-around",
         flexWrap:"wrap"
     },
     informationText:{
         color:"#FFeeFF",
         fontFamily:"Ubuntu_500Medium",
-        fontSize: 13,
-        marginHorizontal:10,
-        marginVertical: 10
+        fontSize: DimensionFont * 12,
+        marginHorizontal: DimensionWidth * 0.01,
+        marginVertical: DimensionHeight * 0.01
     },
     alimentos:{
         alignItems:"center",
@@ -34,7 +38,7 @@ const styles = StyleSheet.create({
     alimentosTitle:{
         color:"#FFeeFF",
         fontFamily:"Ubuntu_500Medium",
-        fontSize: 17,
+        fontSize: DimensionFont * 17,
         marginBottom: 20
     }
 });

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Dimensions} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { FontAwesome } from '@expo/vector-icons';
 import { useMyContext } from '../../contexts/database';
@@ -353,57 +353,61 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
 }
 
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
+
 const styles = StyleSheet.create({
 
     calendario:{
-        margin:30,
+        margin: DimensionWidth * 0.06,
         backgroundColor:"#1e1041",
         borderColor: "#8169be",
         borderWidth: 2,
-        borderRadius: 30,
+        borderRadius: DimensionWidth * 0.06,
     },
     mes:{
-        marginTop: 5,
+        marginTop: DimensionHeight * 0.005,
         flexDirection: "row",
         alignItems:"center",
         justifyContent:"center"
     },
     mesTexto:{
         color:"#FFeeFF",
-        fontSize: 25,
+        fontSize: DimensionFont * 23,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
-        paddingHorizontal: 30
+        paddingHorizontal: DimensionWidth * 0.06
     },
     anoTexto:{
         color:"#FFeeFF",
-        fontSize: 15,
+        fontSize: DimensionFont * 13,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
-        marginTop:15,
-        paddingHorizontal: 30
+        marginTop: DimensionHeight * 0.01,
+        paddingHorizontal: DimensionWidth * 0.1
     },
     semanas:{
         backgroundColor:"#8169be",
-        borderRadius: 20,
+        borderRadius: DimensionWidth * 0.055,
         alignItems:"center",
         justifyContent:"center",
-        marginTop: 20,
-        marginBottom: 12,
-        marginHorizontal: 12,
-        paddingBottom: 6
+        marginTop: DimensionHeight * 0.02,
+        marginBottom: DimensionHeight * 0.02,
+        marginHorizontal: DimensionWidth * 0.03,
+        paddingBottom: DimensionWidth * 0.02
     },
     semanaHeader:{
         flexDirection:"row",
-        padding: 8
+        padding: DimensionWidth * 0.02
     },
     semana:{
         flexDirection:"row",
-        paddingHorizontal: 8,
+        paddingHorizontal: DimensionWidth * 0.02,
     },
     textSemanaHeader:{
         flex:1,
-        padding:5,
+        padding: DimensionWidth * 0.01,
         textAlign:"center",
         fontFamily:"Ubuntu_500Medium",
         color:"#FFeeFF",
@@ -413,11 +417,12 @@ const styles = StyleSheet.create({
         color:"#FFeeFF",
     },
     ViewSemana:{
-        padding:5,
+        paddingVertical: 5,
+        paddingHorizontal: 5,
         flex:1,
     },
     separator:{
-        width:"90%",
+        width: DimensionWidth * 0.75,
         borderBottomColor: "rgba(255,255,255,0.3)",
         borderBottomWidth: 1,
         marginHorizontal: 3,

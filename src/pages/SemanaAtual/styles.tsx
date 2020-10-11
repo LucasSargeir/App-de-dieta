@@ -1,31 +1,35 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const DimensionFont = (Dimensions.get("window").fontScale)
+const DimensionHeight = (Dimensions.get("window").height)
+const DimensionWidth = (Dimensions.get("window").width)
 
 const styles = StyleSheet.create({
 
     container:{
         flex:1,
-        paddingBottom: 20,
+        paddingBottom: DimensionHeight * 0.03,
         flexDirection: "column",
         justifyContent:'space-between'
     },
     title:{
         color:"#FFeeFF",
-        fontSize: 25,
+        fontSize: DimensionFont * 23,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
-        marginHorizontal:35
+        marginHorizontal: DimensionWidth * 0.1
     },
     header:{
-        marginTop: 35,
-        marginHorizontal:15
+        marginTop: DimensionHeight * 0.05,
+        marginHorizontal: DimensionWidth * 0.04
     },
     information:{
-        paddingHorizontal:40,
-        marginTop: 30
+        paddingHorizontal:DimensionWidth * 0.08,
+        marginTop: DimensionHeight * 0.03
     },
     textInformation:{
         color:"#FFeeFF",
-        fontSize:20,
+        fontSize: DimensionFont * 18,
         fontFamily:"Ubuntu_500Medium"
     }
 });

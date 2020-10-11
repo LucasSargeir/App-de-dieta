@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Dimensions} from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -85,7 +85,7 @@ const VerDia = () =>{
             <View style={styles.alimentos}>
                 <Text style={styles.alimentosTitle}>Alimentos</Text>
             </View>
-            <View style={{marginHorizontal:40}}>
+            <View style={{marginHorizontal:Dimensions.get("window").width * 0.05}}>
                 {(dia?.alimentos)&&
                     <FoodPerDay alimentos={dia.alimentos} dia={new Date(String(routeParams.dia))}/>
                 }

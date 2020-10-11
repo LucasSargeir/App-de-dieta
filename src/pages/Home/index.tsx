@@ -18,6 +18,8 @@ const Home = () =>{
     const {findWeek, apagarStorage} = useMyContext();
     const navigation = useNavigation();
     
+    const [toquei, setToquei] = useState(false);
+
     function handleNavigateNovoItem(){
         
         navigation.navigate("NewItem", {semana: findWeek(new Date)});
@@ -53,7 +55,7 @@ const Home = () =>{
                     <Image style={{width:40, height:40}} source={settings}/>
                 </TouchableOpacity>
             
-                <Text style={styles.title}>Bem vindo ao seu app de Dieta</Text>
+                <Text onPress={()=>{(toquei === false)?setToquei(true):setToquei(false)}} style={styles.title}>Bem vindo ao seu app de Dieta</Text>
             </View>
             <View style={styles.optionsContainer}>
                 <TouchableOpacity style={styles.option} onPress={handleNavigateSemanaAtual}>
@@ -64,11 +66,11 @@ const Home = () =>{
                     <Image style={{width:100, height:100}} source={calendario2}/>
                     <Text style={styles.optionTitle}>Histórico</Text>
                 </TouchableOpacity>
-                {/* <TouchableOpacity style={styles.option} onPress={handleNavigateEvolucao}>
+                {(toquei)&& <TouchableOpacity style={styles.option} onPress={handleNavigateEvolucao}>
                     <Image style={{width:100, height:100}} source={grafico}/>
                     <Text style={styles.optionTitle}>Evolução</Text>
                 </TouchableOpacity>
-               */ }
+                }
             </View>
 
             <Button title="Inserir" onPress={handleNavigateNovoItem}/>

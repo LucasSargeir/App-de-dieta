@@ -14,7 +14,7 @@ const Anchor:React.FC<DataProps> = (props) => {
         //props.onPress && props.onPress();
     };
 
-  return( 
+  return(  
 
       <View onTouchEnd={_handlePress}>
         {props.children}

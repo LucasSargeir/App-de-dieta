@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface DataProps{
@@ -65,16 +65,16 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"space-around",
-        borderBottomRightRadius:7,
-        borderTopLeftRadius: 7,
-        marginBottom: 2,
+        borderBottomRightRadius: Dimensions.get("window").width * 0.02,
+        borderTopLeftRadius: Dimensions.get("window").width * 0.02,
+        marginBottom: 3,
     },
     alimentoText:{
         flex:1,
         color:"#FFF",
         marginBottom:2,
-        padding: 7,
-        fontSize: 12
+        padding: Dimensions.get("window").width * 0.02,
+        fontSize: Dimensions.get("window").fontScale * 11
     },
     typeGreen:{
         backgroundColor:"rgba(127,201,80,0.7)",
