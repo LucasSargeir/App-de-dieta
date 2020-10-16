@@ -30,16 +30,16 @@ const Hitorico = () => {
             <View style={styles.visoes}>
                 <TouchableOpacity style={styles.visao} onPress={()=>{setTypeOfView(1)}}>
                     {(typeOfView === 1)?
-                        <FontAwesome name="bars" size={20} color="#FFF"/>
+                        <FontAwesome name="bars" size={10} color="#FFF"/>
                         :
-                        <FontAwesome name="bars" size={20} color="#8169be"/>
+                        <FontAwesome name="bars" size={10} color="#8169be"/>
                     }
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.visao} onPress={()=>{setTypeOfView(2)}}>
                     {(typeOfView === 2)?
-                        <FontAwesome name="th" size={20} color="#FFF"/>
+                        <FontAwesome name="th" size={10} color="#FFF"/>
                         :
-                        <FontAwesome name="th" size={20} color="#8169be"/>
+                        <FontAwesome name="th" size={10} color="#8169be"/>
                     }
                 </TouchableOpacity>
             </View>

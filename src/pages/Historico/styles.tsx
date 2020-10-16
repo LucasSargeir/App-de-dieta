@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"#FFeeFF",
-        fontSize: DimensionFont * 23,
+        fontSize: DimensionFont * 16,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
         marginHorizontal: DimensionWidth * 0.05
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent:"flex-end",
         marginRight: DimensionWidth * 0.065,
-        marginTop: DimensionHeight * 0.03
+        marginTop: DimensionHeight * 0.022
     },
     visao:{
         backgroundColor:"#1e1041",
@@ -32,7 +32,11 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: DimensionWidth * 1,
         margin: DimensionWidth * 0.01,
-        padding: DimensionWidth * 0.03
+        padding: DimensionWidth * 0.03,
+        width: DimensionWidth * 0.099,
+        height: DimensionWidth * 0.099,
+        justifyContent: "center",
+        alignItems:"center",
     },
 });
 

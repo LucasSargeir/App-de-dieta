@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -27,8 +27,10 @@ const Evolucao = () =>{
                     <FontAwesome name="arrow-left" size={30} color="#FFF"/>
                 </TouchableOpacity>
                 <Text style={styles.title}>Aguarde por atualizações</Text>
-                <Text>{JSON.stringify(semanas)}</Text>
             </View>
+            <ScrollView style={styles.header}>
+                <Text>{JSON.stringify(semanas)}</Text>
+            </ScrollView>
         </View>
     );
 

@@ -4,6 +4,7 @@ import {Semana, Dia, Alimento} from '../myTypes/index';
 
 interface MyContextData{
     alimentos: Alimento[];
+    alimentosSorted: Alimento[];
     peso: number;
     actualWeek: number;
     semanas: Semana[];
@@ -20,7 +21,8 @@ export const MyProvider: React.FC = ({children}) =>{
 
 
 
-    const [alimentos] = useState(require('../../cardapio.json').sort((a:Alimento,b:Alimento) => {return a.nome > b.nome}));//o cardapio
+    const [alimentos] = useState(require('../../cardapio.json'));//o cardapio
+    const [alimentosSorted] = useState(require('../../cardapio.json').sort((a:Alimento,b:Alimento) => {return a.nome > b.nome }));//o cardapio
     const [semanas, setSemanas] = useState<Semana[]>([]);
 
     const [actualWeek, setActualWeek] = useState(-1);
@@ -32,9 +34,11 @@ export const MyProvider: React.FC = ({children}) =>{
 
     function apagaAlimentoDia(a: Alimento, d: Date){
 
-        console.log("Dia: "+d.toDateString());
+       // console.log("Dia: "+d.toDateString());
 
         const indexWeek = findWeek(d);
+        console.log(indexWeek);
+
         var indexDay = -1
         var indexFood = -1
 
@@ -80,6 +84,9 @@ export const MyProvider: React.FC = ({children}) =>{
 
             semanas[indexWeek].dias[indexDay].alimentos.splice(indexFood,1);
 
+        }
+        else{
+            alert("Erro ao excluir alimento!")
         }
         
         console.log(semanas);
@@ -201,6 +208,7 @@ export const MyProvider: React.FC = ({children}) =>{
         await AsyncStorage.removeItem('@dietapp:semanas');
         setSemanas([]);
         setPeso(-1);
+        setActualWeek(-1);
         alert("Historico apagado com sucesso!");
     }
 
@@ -286,7 +294,7 @@ export const MyProvider: React.FC = ({children}) =>{
 
 
     return(
-        <MyContext.Provider value={{semanas, alimentos, peso, actualWeek, setPeso, findWeek, updateWeek, apagarStorage, apagaAlimentoDia}}>
+        <MyContext.Provider value={{semanas, alimentos, alimentosSorted, peso, actualWeek, setPeso, findWeek, updateWeek, apagarStorage, apagaAlimentoDia}}>
             {children}
         </MyContext.Provider>
     );

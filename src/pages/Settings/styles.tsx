@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"#FFeeFF",
-        fontSize: DimensionFont * 23,
+        fontSize: DimensionFont * 16,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
         marginHorizontal: DimensionWidth * 0.05

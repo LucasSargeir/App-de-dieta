@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: DimensionWidth * 0.05,
         borderTopRightRadius: DimensionWidth * 0.05,
         borderBottomLeftRadius: DimensionWidth * 0.05,
-        height: DimensionHeight * 0.75
+        height: DimensionHeight * 0.76
     },
     textBody:{
         paddingHorizontal: DimensionWidth * 0.01,

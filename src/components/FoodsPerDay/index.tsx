@@ -35,15 +35,19 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
     }
     function handleInsertNewItems(){
 
-        //console.log("dia:" + props.dia.toDateString());
-        navigation.navigate("NewItem",{semana: findWeek(props.dia), dia: props.dia})
+        const  day = new Date(props.dia);
+        const index = findWeek(day);
+
+        console.log(index)
+
+        navigation.navigate("NewItem",{semana: index, dia: day})
         setSelectedType(0);
 
     }
 
     function handleDeleteItem(a: Alimento, d: Date){
 
-        apagaAlimentoDia(a, d)
+        apagaAlimentoDia(a, new Date(d))
         setSelectedType(0);
 
     }

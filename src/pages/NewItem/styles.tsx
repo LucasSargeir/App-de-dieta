@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"#FFeeFF",
-        fontSize: DimensionFont * 23,
+        fontSize: DimensionFont * 16,
         fontFamily:"Ubuntu_500Medium",
         textAlign:"center",
         marginHorizontal: DimensionWidth * 0.05
@@ -72,6 +72,24 @@ const styles = StyleSheet.create({
         color:"#FFF",
         marginHorizontal: DimensionWidth * 0.01,
     },
+    visoes:{
+        flexDirection: "row",
+        justifyContent:"flex-end",
+        marginRight: DimensionWidth * 0.065,
+        marginTop: DimensionHeight * 0.002
+    },
+    visao:{
+        backgroundColor:"#1e1041",
+        width: DimensionWidth * 0.099,
+        height: DimensionWidth * 0.099,
+        justifyContent: "center",
+        alignItems:"center",
+        borderColor: "#8169be",
+        borderWidth: 2,
+        borderRadius: DimensionWidth * 1,
+        margin: DimensionWidth * 0.01,
+        padding: DimensionWidth * 0.03
+    },
     itemExit:{
         marginHorizontal: DimensionWidth * 0.009,
         backgroundColor:"#8169be",
@@ -88,7 +106,7 @@ const styles = StyleSheet.create({
     },
     alimentos:{
         marginHorizontal: DimensionWidth * 0.07,
-        marginTop: DimensionHeight * 0.025,
+        marginTop: DimensionHeight * 0.005,
         height: DimensionHeight * 0.4,
         
     },
@@ -100,7 +118,7 @@ const styles = StyleSheet.create({
     headerTableText:{
         fontFamily:"Ubuntu_500Medium",
         color:"#FFF",
-        fontSize: DimensionFont * 18,
+        fontSize: DimensionFont * 13,
         flex:1
     },
     colums:{
