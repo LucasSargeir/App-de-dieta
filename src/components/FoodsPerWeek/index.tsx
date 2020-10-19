@@ -17,7 +17,7 @@ const FoodPerWeek:React.FC<DataProps> = (props) =>{
     const [totalY, setTotalY] = useState(0);
     const [totalG, setTotalG] = useState(0);
 
-    const {semanas, findWeek} = useMyContext()
+    const {semanas, encontrarSemana} = useMyContext()
 
     function handleChangeType(t: number){
 
@@ -55,7 +55,7 @@ const FoodPerWeek:React.FC<DataProps> = (props) =>{
 
     useEffect(()=>{
 
-        setSemana(semanas[findWeek(new Date)]);
+        setSemana(semanas[encontrarSemana(new Date)]);
 
     },[]);
 

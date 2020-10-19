@@ -21,7 +21,7 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
     const [totalY, setTotalY] = useState(0);
     const [totalG, setTotalG] = useState(0);
 
-    const {findWeek,apagaAlimentoDia} = useMyContext();
+    const {encontrarSemana,apagaAlimentoDia} = useMyContext();
 
     function handleChangeType(t: number){
 
@@ -36,7 +36,7 @@ const FoodPerDay:React.FC<DataProps> = (props) =>{
     function handleInsertNewItems(){
 
         const  day = new Date(props.dia);
-        const index = findWeek(day);
+        const index = encontrarSemana(day);
 
         console.log(index)
 

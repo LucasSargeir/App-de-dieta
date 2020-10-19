@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {Text, View, TextInput} from 'react-native';
+import {Text, View, TextInput, SafeAreaView} from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import styles from './styles';
-import { Alimento} from '../../myTypes/index';
+import {Alimento} from '../../myTypes/index';
 
 import Button from '../../components/Button';
 import FoodTable from '../../components/FoodTable';
@@ -14,13 +14,13 @@ import { useMyContext } from '../../contexts/database';
 const NewItem = () =>{
 
 
-    const { alimentos, alimentosSorted, setPeso, peso, updateWeek} = useMyContext();
+    const { alimentosPorCor, alimentosOrdenados, setPeso, peso, atualizarSemana} = useMyContext();
 
     const [typeOfView, setTypeOfView] = useState(2)
     const [selecionados, setSelecionados] = useState<Alimento[]>([]);
-    const [week, setWeek] = useState(-1) //Semana que os itens serão inseridos
+    const [week, setWeek] = useState(-1)
     const [inputPeso, setInputPeso] = useState(0);
-
+    const [search, setSearch] = useState("");
     const navigation = useNavigation();
 
     const route = useRoute();	
@@ -58,7 +58,7 @@ const NewItem = () =>{
         //console.log(JSON.stringify(semanas));
         //return//console.log(selecionados);
 
-        updateWeek(week, hoje, dia);
+        atualizarSemana(week, hoje, dia);
 
         //alert("Refeição adicionada com sucesso!");
 
@@ -99,7 +99,7 @@ const NewItem = () =>{
 
     return (
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={handleNavigateBack}>
                     <FontAwesome5 name="arrow-left" size={30} color="#FFF"/>
@@ -140,21 +140,38 @@ const NewItem = () =>{
                 </ScrollView>
             </View>
             <View style={styles.visoes}>
-                <TouchableOpacity style={styles.visao} onPress={()=>{setTypeOfView(1)}}>
-                    {(typeOfView === 1)?
-                        <FontAwesome5 name="sort-alpha-up" size={10} color="#FFF"/>
-                        :
-                        <FontAwesome5 name="sort-alpha-up" size={10} color="#8169be"/>
-                    }
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.visao} onPress={()=>{setTypeOfView(2)}}>
-                    {(typeOfView === 2)?
-                        <FontAwesome5 name="palette" size={10} color="#FFF"/>
-                        :
-                        <FontAwesome5 name="palette" size={10} color="#8169be"/>
-                    }
+                <View style={styles.groupVision}>
+                    <TouchableOpacity style={styles.visao} onPress={()=>{setTypeOfView(3)}}>
+                        {(typeOfView === 3)?
+                            <FontAwesome5 name="search" size={10} color="#FFF"/>
+                            :
+                            <FontAwesome5 name="search" size={10} color="#8169be"/>
+                        }
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.visao} onPress={()=>{setTypeOfView(1)}}>
+                        {(typeOfView === 1)?
+                            <FontAwesome5 name="sort-alpha-up" size={10} color="#FFF"/>
+                            :
+                            <FontAwesome5 name="sort-alpha-up" size={10} color="#8169be"/>
+                        }
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.visao} onPress={()=>{setTypeOfView(2)}}>
+                        {(typeOfView === 2)?
+                            <FontAwesome5 name="palette" size={10} color="#FFF"/>
+                            :
+                            <FontAwesome5 name="palette" size={10} color="#8169be"/>
+                        }
+                    </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.visaoSend} onPress={()=>{handleInsertMeal()}}>
+                    <Text style={styles.sendText}>Enviar</Text>
                 </TouchableOpacity>
             </View>
+            {(typeOfView === 3)&&
+                <SafeAreaView style={styles.inputSearchView}>
+                    <TextInput style={styles.inputSearch} value={search} onChangeText={(e)=>{setSearch(e)}}/>
+                </SafeAreaView>
+            }
             <View>
                 <View style={styles.alimentos}>
                     <View style={styles.headerTable}>
@@ -170,31 +187,38 @@ const NewItem = () =>{
                                 contentContainerStyle={{paddingEnd: 10}}>
                         {
                         (typeOfView === 2)&&
-                            alimentos.map((a, i) => {
+                            alimentosPorCor.map((a, i) => {
                                 
                                 return <FoodTable key={String(i)} cor={a.cor} alimento={a.nome} pontos={a.pontuacao} porcao={a.porcao} onPress={()=>{handleAddAlimento(a)}}/>
                                 
 
                             })
-                        }{
-                            (typeOfView === 1)&&
-                            alimentosSorted.map((a, i) => {
-                                
-                                return <FoodTable key={String(i)} cor={a.cor} alimento={a.nome} pontos={a.pontuacao} porcao={a.porcao} onPress={()=>{handleAddAlimento(a)}}/>
-                                
-
-                            })
-
                         }
+                        {
+                        (typeOfView === 1)&&
+                            alimentosOrdenados.map((a, i) => {
+                                
+                                return <FoodTable key={String(i)} cor={a.cor} alimento={a.nome} pontos={a.pontuacao} porcao={a.porcao} onPress={()=>{handleAddAlimento(a)}}/>
+                                
 
+                            })
+                        }
+                        {(typeOfView === 3)&&
+                            alimentosOrdenados.map((a, i) => {
+                                
+                                if(a.nome.toLowerCase().indexOf(search.toLocaleLowerCase())){
+                                    return <FoodTable key={String(i)} cor={a.cor} alimento={a.nome} pontos={a.pontuacao} porcao={a.porcao} onPress={()=>{handleAddAlimento(a)}}/>
+                                }
+                                
+
+                            })
+                        }
                     </ScrollView>
 
                 </View>
             </View>
-            <View style={styles.button}> 
-                <Button title="Enviar" onPress={()=>{handleInsertMeal()}}/>
-            </View>
-        </View>
+            
+        </ScrollView>
 
     );
 

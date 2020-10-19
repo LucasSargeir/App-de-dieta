@@ -74,9 +74,10 @@ const styles = StyleSheet.create({
     },
     visoes:{
         flexDirection: "row",
-        justifyContent:"flex-end",
-        marginRight: DimensionWidth * 0.065,
-        marginTop: DimensionHeight * 0.002
+        alignItems:"center",
+        justifyContent:"space-between",
+        marginHorizontal: DimensionWidth * 0.1,
+        marginTop: DimensionHeight * 0.003,
     },
     visao:{
         backgroundColor:"#1e1041",
@@ -89,6 +90,27 @@ const styles = StyleSheet.create({
         borderRadius: DimensionWidth * 1,
         margin: DimensionWidth * 0.01,
         padding: DimensionWidth * 0.03
+    },
+    groupVision:{
+        flex:3,
+        flexDirection: "row",
+        alignItems:"center",
+        justifyContent:"flex-start",
+    },
+    visaoSend:{
+        backgroundColor:"#8169be",
+        width: DimensionWidth * 0.2,
+        height: DimensionWidth * 0.099,
+        justifyContent: "center",
+        alignItems:"center",
+        borderRadius: DimensionWidth * 0.02,
+        margin: DimensionWidth * 0.01,
+        padding: DimensionWidth * 0.03
+    },
+    sendText:{
+        color:"#FFF",
+        fontFamily: "Ubuntu_500Medium",
+        fontSize: DimensionFont * 12
     },
     itemExit:{
         marginHorizontal: DimensionWidth * 0.009,
@@ -121,8 +143,6 @@ const styles = StyleSheet.create({
         fontSize: DimensionFont * 13,
         flex:1
     },
-    colums:{
-    },
     colum:{
         flexDirection:"row",
         alignItems:"center",
@@ -131,7 +151,7 @@ const styles = StyleSheet.create({
     button:{
         flex:1, 
         justifyContent:"flex-end", 
-        marginBottom: DimensionHeight * 0.05
+        marginBottom: DimensionHeight * 0.01
         
     },
     inputPeso:{
@@ -141,6 +161,18 @@ const styles = StyleSheet.create({
         height:50,
         borderRadius: 20,
         fontSize: 20
+
+    },
+    inputSearchView:{
+        flex:1,
+        backgroundColor:"#FFF",
+        marginHorizontal: DimensionWidth * 0.1,
+        marginVertical: DimensionHeight * 0.01,
+        borderRadius: DimensionWidth * 0.01,
+        paddingHorizontal: DimensionWidth * 0.02,
+        paddingVertical: DimensionHeight * 0.01,
+    },
+    inputSearch:{
 
     }
 });

@@ -3,40 +3,38 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {Semana, Dia, Alimento} from '../myTypes/index';
 
 interface MyContextData{
-    alimentos: Alimento[];
-    alimentosSorted: Alimento[];
+    alimentosOrdenados: Alimento[];
+    alimentosPorCor: Alimento[];
     peso: number;
-    actualWeek: number;
     semanas: Semana[];
     setPeso: React.Dispatch<React.SetStateAction<number>>;
-    findWeek(d: Date): number;
-    updateWeek(index: number, data: Date, dia: Dia): void;
+    encontrarSemana(d: Date): number;
+    atualizarSemana(index: number, data: Date, dia: Dia): void;
     apagarStorage(): Promise<void>;
     apagaAlimentoDia(a: Alimento, d: Date): void;
 }
+
 const MyContext = createContext<MyContextData>({} as MyContextData);
+const cardapio = require('../../cardapio.json');
+const cardapioOrdenado = require('../../cardapioSorted.json');
 
 export const MyProvider: React.FC = ({children}) =>{
 
 
-
-
-    const [alimentos] = useState(require('../../cardapio.json'));//o cardapio
-    const [alimentosSorted] = useState(require('../../cardapio.json').sort((a:Alimento,b:Alimento) => {return a.nome > b.nome }));//o cardapio
+    const [alimentosOrdenados, setAlimentosOrdenados] = useState<Alimento[]>([]);//o cardapio
+    const [alimentosPorCor, setAlimentosPorCor] = useState<Alimento[]>([]);//o cardapio
+  //  const [semanaAtual, setSemanaAtual] = useState(-1);
+    const [semanasCarregadas, setSemanasCarregadas] = useState(false);
     const [semanas, setSemanas] = useState<Semana[]>([]);
-
-    const [actualWeek, setActualWeek] = useState(-1);
     const [peso, setPeso] = useState(-1);
-
-    const [loadSemanas, setLoadSemanas] = useState(false);
-
+    
 
 
     function apagaAlimentoDia(a: Alimento, d: Date){
 
        // console.log("Dia: "+d.toDateString());
 
-        const indexWeek = findWeek(d);
+        const indexWeek = encontrarSemana(d);
         console.log(indexWeek);
 
         var indexDay = -1
@@ -93,7 +91,7 @@ export const MyProvider: React.FC = ({children}) =>{
 
     }
 
-    function findWeek(d: Date){
+    function encontrarSemana(d: Date){
         
         // Encontra a qual semana esta data pertence, se não encontrar cria uma nova
 
@@ -150,7 +148,7 @@ export const MyProvider: React.FC = ({children}) =>{
                 }
             )
 
-            updateWeek(newIndex, d, {data: d, alimentos: []});
+            atualizarSemana(newIndex, d, {data: d, alimentos: []});
 
             return newIndex;
 
@@ -158,7 +156,7 @@ export const MyProvider: React.FC = ({children}) =>{
 
     }
 
-    function updateWeek(index: number, data: Date, dia: Dia){
+    function atualizarSemana(index: number, data: Date, dia: Dia){
 
         var diaIndex = -1
 
@@ -208,7 +206,7 @@ export const MyProvider: React.FC = ({children}) =>{
         await AsyncStorage.removeItem('@dietapp:semanas');
         setSemanas([]);
         setPeso(-1);
-        setActualWeek(-1);
+//        setSemanaAtual(-1);
         alert("Historico apagado com sucesso!");
     }
 
@@ -223,7 +221,7 @@ export const MyProvider: React.FC = ({children}) =>{
         async function atualiza(){
             //console.log("Mudei o semanas");
             //console.log(JSON.stringify(semanas));
-            if(loadSemanas === false){
+            if(semanasCarregadas === false){
                // console.log("Nao Atualizei");
                 
                 const data = await AsyncStorage.getItem('@dietapp:semanas');
@@ -232,7 +230,7 @@ export const MyProvider: React.FC = ({children}) =>{
                     setSemanas(JSON.parse(data));
                 }
                 
-                setLoadSemanas(true);
+                setSemanasCarregadas(true);
                 
             }
             else{
@@ -249,20 +247,20 @@ export const MyProvider: React.FC = ({children}) =>{
 
     //Seta o peso com o peso da semana atual    
     useEffect(()=>{
-        if(loadSemanas === true){
+        if(semanasCarregadas === true){
 
-            const week = findWeek(new Date);
+            const week = encontrarSemana(new Date);
             //console.log("Week"+week);
-            setActualWeek(week);
+            //setSemanaAtual(week);
             setPeso(Number(semanas[week].peso.replace(" kg", "")));
 
         }
 
-    },[loadSemanas]);
+    },[semanasCarregadas]);
     
     //Cria uma nova semana quando for uma nova
     useEffect(()=>{
-        if(loadSemanas === true){
+        if(semanasCarregadas === true){
 
             if(semanas.length > 0){
                 
@@ -273,7 +271,9 @@ export const MyProvider: React.FC = ({children}) =>{
                         //console.log("Peso:" + peso);
                         //console.log("Index:" + i);
     
-                        const pesoA = (i === actualWeek)?peso+" kg": s.peso;
+                        const hoje = encontrarSemana(new Date())
+
+                        const pesoA = (i === hoje)?peso+" kg": s.peso;
     
                         return( {
                             numero: s.numero,
@@ -291,10 +291,13 @@ export const MyProvider: React.FC = ({children}) =>{
 
     }, [peso])
 
-
+    useEffect(()=>{
+        setAlimentosPorCor(cardapio);
+        setAlimentosOrdenados(cardapioOrdenado.sort((a:Alimento,b:Alimento) => {return (a.nome > b.nome)?1:-1 }));
+    },[])
 
     return(
-        <MyContext.Provider value={{semanas, alimentos, alimentosSorted, peso, actualWeek, setPeso, findWeek, updateWeek, apagarStorage, apagaAlimentoDia}}>
+        <MyContext.Provider value={{semanas, alimentosOrdenados, alimentosPorCor, peso, setPeso, encontrarSemana, atualizarSemana, apagarStorage, apagaAlimentoDia}}>
             {children}
         </MyContext.Provider>
     );

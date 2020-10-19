@@ -12,7 +12,7 @@ interface DataProps{
 
 const Calendario:React.FC<DataProps> = (props)=>{
 
-    const {semanas, findWeek} = useMyContext();
+    const {semanas, encontrarSemana} = useMyContext();
     const navigation = useNavigation();
     const [whatChange, setWhatChange] = useState(0)
     const [selectedMonth, setSelectedMoth] = useState(props.mes)
@@ -78,7 +78,6 @@ const Calendario:React.FC<DataProps> = (props)=>{
     }
 
     useEffect(()=>{
-
         let tot = diasNoMes(selectedYear, selectedMonth+1);
         let index = 1;
         let vet = []
@@ -188,7 +187,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
                                 if(i===0){
                                     return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana,{borderTopLeftRadius:10}]}>
-                                            {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                            {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                             :<Text style={styles.textSemana}>{d}</Text>
                                             }
                                             {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -197,7 +196,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                                 }
                                 if(i===6){
                                     return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana,{borderTopRightRadius:10}]}>
-                                            {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                            {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                             :<Text style={styles.textSemana}>{d}</Text>
                                             }
                                             {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -205,7 +204,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                                 }
 
                                 return <View key={`${i}`} style={styles.ViewSemana}>
-                                            {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                            {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                             :<Text style={styles.textSemana}>{d}</Text>
                                             }
                                             {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#1e1041"/>}
@@ -221,7 +220,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
                         if(i===0){
                             return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana]}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -230,7 +229,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                         }
                         if(i===6){
                             return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana]}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -238,7 +237,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                         }
 
                         return <View key={`${i}`} style={styles.ViewSemana}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#1e1041"/>}
@@ -254,7 +253,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
                         if(i===0){
                             return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana]}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -263,7 +262,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                         }
                         if(i===6){
                             return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana]}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -271,7 +270,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                         }
 
                         return <View key={`${i}`} style={styles.ViewSemana}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#1e1041"/>}
@@ -287,7 +286,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
                         if(i===0){
                             return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana]}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -296,7 +295,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                         }
                         if(i===6){
                             return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana]}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -304,7 +303,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                         }
 
                         return <View key={`${i}`} style={styles.ViewSemana}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#1e1041"/>}
@@ -320,7 +319,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
 
                         if(i===0){
                             return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana,{borderBottomLeftRadius:10}]}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -329,7 +328,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                         }
                         if(i===6){
                             return <View key={`${i}`} style={[styles.ViewSemana,styles.finalDeSemana,{borderBottomRightRadius:10}]}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#8169be"/>}
@@ -337,7 +336,7 @@ const Calendario:React.FC<DataProps> = (props)=>{
                         }
 
                         return <View key={`${i}`} style={styles.ViewSemana}>
-                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(findWeek(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
+                                    {(diasContados[selectedMonth]?.find(element=> element === d ))?<Text onPress={() =>{handleNavigateVerDia(encontrarSemana(new Date(selectedYear, selectedMonth, Number(d))),new Date(selectedYear, selectedMonth, Number(d)))}} style={styles.textSemana}>{d}</Text> 
                                     :<Text style={styles.textSemana}>{d}</Text>
                                     }
                                     {( diasContados[selectedMonth]?.find(element=> element === d ))&&<FontAwesome name="check" size={10} color="#1e1041"/>}

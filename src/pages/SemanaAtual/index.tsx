@@ -12,7 +12,7 @@ import { useMyContext } from '../../contexts/database';
 const SemanaAtual = () =>{
 
     const navigation = useNavigation();
-    const {semanas, findWeek} = useMyContext();
+    const {semanas, encontrarSemana} = useMyContext();
     const [index, setIndex] = useState(-1);
     //const route = useRoute();	
     //const routeParams=  route.params as {indexSemana: number, dia: Date};
@@ -25,7 +25,7 @@ const SemanaAtual = () =>{
 
     useEffect(()=>{
 
-        setIndex(findWeek(new Date()))
+        setIndex(encontrarSemana(new Date()))
 
     })
 

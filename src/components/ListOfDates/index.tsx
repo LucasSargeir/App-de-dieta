@@ -15,7 +15,7 @@ const ListOfDates = () =>{
     const navigation = useNavigation();
     
     const [numberOfElements, setNumberOfElements] = useState(-1);
-    const {semanas} = useMyContext();
+    const {semanas, encontrarSemana} = useMyContext();
 
     function handleNavigateVerDia(index: number, dia: Date){
 
@@ -72,7 +72,7 @@ const ListOfDates = () =>{
                                 })
 
                                 return(
-                                        <TouchableOpacity key={`${i}${i2}`} style={style.dataLine} onPress={()=>{handleNavigateVerDia(i, new Date(d.data))}}>
+                                        <TouchableOpacity key={`${i}${i2}`} style={style.dataLine} onPress={()=>{handleNavigateVerDia(encontrarSemana(new Date(d.data)), new Date(d.data))}}>
                                             <View style={style.dataBlock}>
                                                 <Text style={style.dataText}>Semana</Text>
                                                 <Text style={style.dataText}> {s.numero}</Text>

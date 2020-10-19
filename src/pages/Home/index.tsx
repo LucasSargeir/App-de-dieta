@@ -15,14 +15,14 @@ const grafico = require('../../assets/grafico.png');
 
 const Home = () =>{
 
-    const {findWeek, apagarStorage} = useMyContext();
+    const {encontrarSemana, apagarStorage} = useMyContext();
     const navigation = useNavigation();
     
     const [toquei, setToquei] = useState(false);
 
     function handleNavigateNovoItem(){
         
-        navigation.navigate("NewItem", {semana: findWeek(new Date)});
+        navigation.navigate("NewItem", {semana: encontrarSemana(new Date)});
 
     }
     function handleNavigateHistorico(){
